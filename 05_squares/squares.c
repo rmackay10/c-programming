@@ -1,16 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
+int Max (int n1, int n2){
+  if (n1>n2) {
+    return n1;
+  }
+  else {
+    return n2;
+  }
+}
+int Min (int n1, int n2){
+  if (n1>n2) {
+    return n2;
+  }
+  else {
+    return n1;
+  }
+}
 
 
 void squares(int size1, int x_offset, int y_offset, int size2) {
   //compute the max of size1 and (x_offset + size2).  Call this w
-
+  int w = Max(size1,size2+x_offset);
   //compute the max of size1 and (y_offset + size2).  Call this h
-
+  int h = Max(size1,size2+y_offset);
   //count from 0 to h. Call the number you count with y
-
+  for (int y=0; y<h; y++){
     //count from 0 to w. Call the number you count with x
-
+    for (int x=0; x<w; x++) {
+      if (((( x>= x_offset && x < (x_offset+size2)))&&(y==y_offset || (y== (y_offset+size2-1))))
+       || ((( y>= y_offset && y < (y_offset+size2)))&&(x==x_offset || (x== (x_offset+size2-1)))) ){
+	  printf("*");
+	}
+      else {
+	if (( x < size1 && (y==0 ||(y==(size1-1)))) || (y < size1 && (x==0 ||(x== (size1-1)))))  {
+        printf("#");
+      }
+      else {
+	printf(" ");
+      }
+      } 
+    }
+    printf("\n");
+  }   
       //check if  EITHER
       //    ((x is between x_offset  and x_offset +size2) AND 
       //     y is equal to either y_offset OR y_offset + size2 - 1 )
