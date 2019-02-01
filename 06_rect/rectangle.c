@@ -41,6 +41,8 @@ rectangle canonicalize(rectangle r) {
 
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
+    r1 = canonicalize(r1);
+      r2 = canonicalize(r2);
   rectangle r;
   int x1=max(r1.x,r2.x);
   int y1=max(r1.y,r2.y);
@@ -86,7 +88,7 @@ int main (void) {
   r1.height = 6;
   printf("r1 is ");
   printRectangle(r1);
-  r1 = canonicalize(r1);
+
 
   r2.x = 4;
   r2.y = 5;
@@ -94,7 +96,7 @@ int main (void) {
   r2.height = -7;
   printf("r2 is ");
   printRectangle(r2);
-  r2 = canonicalize(r2);
+
   
   r3.x = -2;
   r3.y = 7;
@@ -102,7 +104,7 @@ int main (void) {
   r3.height = -10;
   printf("r3 is ");
   printRectangle(r3);
-  r3 = canonicalize(r3);
+
   
   r4.x = 0;
   r4.y = 7;
@@ -110,7 +112,7 @@ int main (void) {
   r4.height = 2;
   printf("r4 is ");
   printRectangle(r4);
-  r4 = canonicalize(r4);
+
 
   //test everything with r1
    rectangle i = intersection(r1,r1);
